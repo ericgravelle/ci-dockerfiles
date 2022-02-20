@@ -3,7 +3,7 @@ FROM ubuntu:focal
 RUN set -x\
 	&& apt-get update \
         && apt-get upgrade -y \
-	&& apt-get install -y ruby-full ruby-dev bundler git \
+	&& apt-get install -y git \
         && apt-get autoremove -y wget \
 	&& rm -rf /var/lib/apt/lists/*
 
