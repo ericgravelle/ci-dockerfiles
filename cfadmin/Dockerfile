@@ -26,8 +26,7 @@ RUN set -x\
         sudo tee /etc/apt/sources.list.d/azure-cli.list \
         && apt-get update \
         && apt-get upgrade -y \
-	&& apt-get install -y git openssh-client dnsutils \
-        nmap openssl azure-cli awscli
+	&& apt-get install -y git openssh-client dnsutils nmap openssl azure-cli awscli \
 	&& rm -rf /var/lib/apt/lists/* 
 
 RUN set -x\
