@@ -33,7 +33,7 @@ RUN set -x\
 	&& rm -rf /var/lib/apt/lists/* 
 
 RUN set -x\
-        && apt-get install -y ruby-full \
+        && apt-get install -y ruby \
         && gem -v --norc install cf-uaac 
 
 COPY credhub-cli/credhub /usr/local/bin/credhub
