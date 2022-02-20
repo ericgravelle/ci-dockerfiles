@@ -29,7 +29,20 @@ RUN set -x\
         sudo tee /etc/apt/sources.list.d/azure-cli.list \
         && apt-get update \
         && apt-get upgrade -y \
-	&& apt-get install -y git openssh-client dnsutils nmap openssl azure-cli 
+	&& apt-get install -y git openssh-client dnsutils nmap openssl azure-cli
+
+RUN set -x\
+	&& apt-get install -y cf8-cli \
+        && su -c "cf install-plugin -r CF-Community -f "check-before-deploy" cfadmin \
+        && su -c "cf install-plugin -r CF-Community -f "conduit" cfadmin \
+        && su -c "cf install-plugin -r CF-Community -f "Create-Service-Push" cfadmin \
+        && su -c "cf install-plugin -r CF-Community -f "cf-restage-all" cfadmin \
+        && su -c "cf install-plugin -r CF-Community -f "top" cfadmin \
+        && su -c "cf install-plugin -r CF-Community -f "cf-rolling-restart" cfadmin \
+        && su -c "cf install-plugin -r CF-Community -f "push-with-vault" cfadmin \
+        && su -c "cf install-plugin -r CF-Community -f "bg-restage" cfadmin \
+        && su -c "cf install-plugin -r CF-Community -f "deploy" cfadmin \
+        && su -c "cf install-plugin -r CF-Community -f "Usage Report" cfadmin 
 
 RUN set -x\
         && apt-get install -y ruby-full \
