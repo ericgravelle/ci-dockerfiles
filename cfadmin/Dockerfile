@@ -9,8 +9,8 @@ RUN set -x\
 		gpg --dearmor | \
 		sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null \
         && echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/$(lsb_release -cs) main" | \
-		 sudo tee /etc/apt/sources.list.d/azure-cli.list
-        && apt-add-repository -y ppa:deadsnakes/ppa
+		 sudo tee /etc/apt/sources.list.d/azure-cli.list \
+        && apt-add-repository -y ppa:deadsnakes/ppa \
         && apt-get update \
         && apt-get upgrade -y \
 	&& apt-get install -y ruby-full python3 git openssh-client dnsutils nmap openssl curl apt-utils \
