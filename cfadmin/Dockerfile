@@ -29,11 +29,10 @@ RUN set -x\
         sudo tee /etc/apt/sources.list.d/azure-cli.list \
         && apt-get update \
         && apt-get upgrade -y \
-	&& apt-get install -y git openssh-client dnsutils nmap openssl azure-cli \
-	&& rm -rf /var/lib/apt/lists/* 
+	&& apt-get install -y git openssh-client dnsutils nmap openssl azure-cli 
 
 RUN set -x\
-        && apt-get install -y ruby \
+        && apt-get install -y ruby-full \
         && gem -v --norc install cf-uaac 
 
 COPY credhub-cli/credhub /usr/local/bin/credhub
@@ -41,5 +40,8 @@ COPY credhub-cli/credhub /usr/local/bin/credhub
 RUN set -x\
 	&& chown root:root /usr/local/bin/credhub \
 	&& chmod 555 /usr/local/bin/credhub
+
+RUN set -x\
+	&& rm -rf /var/lib/apt/lists/* 
 
 USER cfadmin
