@@ -17,6 +17,7 @@ RUN set -x\
         && apt-get upgrade -y \
 	&& apt-get install -y ruby-full git openssh-client dnsutils \
         nmap openssl curl apt-utils azure-cli awscli openjdk-11-jre-headless \
+        python3 python3-pip python3-venv \
         && gem -v --norc install cf-uaac \
 	&& rm -rf /var/lib/apt/lists/* \
         && adduser --home /cfadmin --shell /bin/bash --uid 1000 --disabled-password --gecos "CF Admin,n/a,n/a,n/a,n/a" cfadmin \
