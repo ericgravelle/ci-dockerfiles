@@ -1,4 +1,4 @@
-FROM ericgravelle/bosh-cli:latest
+FROM ericgrav/bosh-cli:latest
 
 RUN set -x\
         && adduser -aG sudo --uid 1000 --shell /bin/bash cfadmin \
