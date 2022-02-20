@@ -22,7 +22,7 @@ RUN set -x\
 
 RUN set -x\
         && apt-get update \
-        && apt-get install -y ruby-full \
+        && apt-get install -y ruby-full ruby-dev \
         && gem install cf-uaac \
 	&& rm -rf /var/lib/apt/lists/* 
 
