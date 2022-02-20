@@ -23,7 +23,7 @@ RUN set -x\
 RUN set -x\
 	&& apt-get update \
         && apt-get upgrade -y \
-	&& apt-get install -y git ca-certificates curl apt-transport-https sudo vim apt-utils azure-cli awscli \
+	&& apt-get install -y git ca-certificates curl apt-transport-https sudo vim apt-utils azure-cli awscli gnupg \
 	&& rm -rf /var/lib/apt/lists/*
 
 COPY --chown=bin bosh-cli/bosh /usr/local/bin/bosh
