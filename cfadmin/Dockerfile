@@ -26,11 +26,11 @@ RUN set -x\
         sudo tee /etc/apt/sources.list.d/azure-cli.list \
         && apt-get update \
         && apt-get upgrade -y \
-	&& apt-get install -y git openssh-client dnsutils nmap openssl azure-cli awscli \
+	&& apt-get install -y git openssh-client dnsutils nmap openssl azure-cli \
 	&& rm -rf /var/lib/apt/lists/* 
 
 RUN set -x\
-        apt-get install -y ruby-full \
+        && apt-get install -y ruby-full \
         && gem -v --norc install cf-uaac 
 
 COPY credhub-cli/credhub /usr/local/bin/credhub
