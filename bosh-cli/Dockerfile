@@ -1,6 +1,6 @@
 FROM ubuntu:focal
 
-USER ROOT
+USER root
 
 RUN set -x\
         && adduser --home /cfadmin --shell /bin/bash --uid 1000 --disabled-password --gecos "CF Admin" cfadmin \
