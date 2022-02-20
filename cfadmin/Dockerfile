@@ -21,8 +21,8 @@ RUN set -x\
 
 RUN set -x\
 	&& apt-get update \
-        && apt-get install -y ca-certificates curl apt-transport-https sudo \
-        lsb-release gnupg software-properties-common lsb-core\
+        && apt-get install -y ca-certificates curl apt-transport-https sudo vim \
+        lsb-release gnupg software-properties-common lsb-core \
 	&& rm -rf /var/lib/apt/lists/* 
 
 RUN set -x\
