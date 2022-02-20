@@ -8,14 +8,17 @@ RUN set -x\
 
 RUN set -x\
 	&& apt-get update \
-	&& apt-get install -y apt-utils
+	&& apt-get install -y apt-utils 
+
+RUN set -x\
+        && ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime \
+        && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata \
+        && dpkg-reconfigure --frontend noninteractive tzdata 
+
 
 RUN set -x\
 	&& apt-get update \
-        && ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime \
-        && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata \
-        && dpkg-reconfigure --frontend noninteractive tzdata \
-        && apt-get install -y ca-certificates curl apt-transport-https sudo\
+        && apt-get install -y ca-certificates curl apt-transport-https sudo \
         lsb-release gnupg software-properties-common lsb-core
 
 RUN set -x\
