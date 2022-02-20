@@ -33,16 +33,16 @@ RUN set -x\
 
 RUN set -x\
 	&& apt-get install -y cf8-cli \
-        && su -c "cf install-plugin -r CF-Community -f "check-before-deploy" cfadmin \
-        && su -c "cf install-plugin -r CF-Community -f "conduit" cfadmin \
-        && su -c "cf install-plugin -r CF-Community -f "Create-Service-Push" cfadmin \
-        && su -c "cf install-plugin -r CF-Community -f "cf-restage-all" cfadmin \
-        && su -c "cf install-plugin -r CF-Community -f "top" cfadmin \
-        && su -c "cf install-plugin -r CF-Community -f "cf-rolling-restart" cfadmin \
-        && su -c "cf install-plugin -r CF-Community -f "push-with-vault" cfadmin \
-        && su -c "cf install-plugin -r CF-Community -f "bg-restage" cfadmin \
-        && su -c "cf install-plugin -r CF-Community -f "deploy" cfadmin \
-        && su -c "cf install-plugin -r CF-Community -f "Usage Report" cfadmin 
+        && su cfadmin -c "cf install-plugin -r CF-Community -f 'check-before-deploy' cfadmin \
+        && su cfadmin -c "cf install-plugin -r CF-Community -f 'conduit' cfadmin \
+        && su cfadmin -c "cf install-plugin -r CF-Community -f 'Create-Service-Push' cfadmin \
+        && su cfadmin -c "cf install-plugin -r CF-Community -f 'cf-restage-all' cfadmin \
+        && su cfadmin -c "cf install-plugin -r CF-Community -f 'top' cfadmin \
+        && su cfadmin -c "cf install-plugin -r CF-Community -f 'cf-rolling-restart' cfadmin \
+        && su cfadmin -c "cf install-plugin -r CF-Community -f 'push-with-vault' cfadmin \
+        && su cfadmin -c "cf install-plugin -r CF-Community -f 'bg-restage' cfadmin \
+        && su cfadmin -c "cf install-plugin -r CF-Community -f 'deploy' cfadmin \
+        && su cfadmin -c "cf install-plugin -r CF-Community -f 'Usage Report' cfadmin 
 
 RUN set -x\
         && apt-get install -y ruby-full \
