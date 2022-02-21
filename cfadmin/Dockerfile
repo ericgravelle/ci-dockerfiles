@@ -22,7 +22,10 @@ RUN set -x\
 
 RUN set -x\
         && apt-get update \
-        && apt-get install -y ruby-full ruby-dev \
+        && apt-get install -y ruby-full ruby-dev build-essential \
+        && gem install cf-uaac \
+        && apt-get remove -y --autoremove build-essential \
+        && /usr/local/bin/uaac version \
 	&& rm -rf /var/lib/apt/lists/* 
 
 COPY --chown=bin credhub-cli/credhub /usr/local/bin/credhub
@@ -33,5 +36,3 @@ RUN set -x\
 
 USER cfadmin
 
-RUN set -x\
-        && gem install cf-uaac 
